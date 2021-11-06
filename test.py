@@ -136,7 +136,7 @@ def spider(flag):
             t = tittle[0]
             tittle[0] = t.replace('\n', '')
             t = tittle[0].replace(' ', '').decode('utf-8').encode('gbk', 'replace')
-            print t
+            print (t)
         except IndexError:
             pass
         # 判断当前目录是否已存在相同文件夹
