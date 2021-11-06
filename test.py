@@ -13,21 +13,6 @@ import base64
 requests.packages.urllib3.disable_warnings()
 
 # 是否配置代理，国内访问速度较慢
-def proxy_set():
-    proxy_set = raw_input('Do you want to use proxy?[y/n]')
-    if proxy_set == 'y':
-        global my_proxies
-        proxies_set = raw_input('input your proxy config ep:"127.0.0.1:8080"')
-        my_proxies = {"http": "http://127.0.0.1:10809", "https": "https://127.0.0.1:10809"}
-        if proxies_set != '':
-            my_proxies['http'] = 'http://'+proxies_set
-            my_proxies['https'] = 'https://'+proxies_set
-
-    elif proxy_set == 'n':
-        my_proxies = ''
-    else:
-        proxy_set()
-
 
 # 91最新的加密，这里进行字符串解密，找到原视频地址
 def strdecode(input, key):
@@ -156,8 +141,7 @@ def spider(flag):
 
 # i为线程数
 if __name__ == '__main__':
-    proxy_set()
-    if len(sys.argv) < 2:
+       if len(sys.argv) < 2:
         threads = 5
     else:
         threads = int(sys.argv[1])
